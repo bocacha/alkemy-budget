@@ -1,15 +1,8 @@
-require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
-
-
-
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {
+const sequelize = new Sequelize(`postgres://postgres:12345@localhost:5432/budget`, {
   logging: false, 
   native: false, 
 });
@@ -32,12 +25,12 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-const { Raza,Temperamento } = sequelize.models;
+const { Transaction } = sequelize.models;
 
 
 
-Raza.belongsToMany(Temperamento, { through: 'dogstemperaments'} );
-Temperamento.belongsToMany(Raza , { through: 'dogstemperaments'} );
+// Raza.belongsToMany(Temperamento, { through: 'dogstemperaments'} );
+// Temperamento.belongsToMany(Raza , { through: 'dogstemperaments'} );
 
 module.exports = {
   ...sequelize.models, 

@@ -2,9 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-const routes = require('./routes/index.js');
-const errors = require('../src/utils/middlewares/errorHandler');
-const headers = require('../src/utils/middlewares/setHeaders');
+const routes = require('./routes/index');
+const errors = require('../utils/middlewares/errorHandlers');
+const headers = require('../utils/middlewares/setHeaders');
 require('./db.js');
 
 const server = express();
