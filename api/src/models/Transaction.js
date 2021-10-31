@@ -6,18 +6,19 @@ module.exports = (sequelize) => {
     id:{
       type:D.INTEGER,
       allowNull:false,
-      primaryKey:true
+      primaryKey:true,
+      autoIncrement:true
     },
     concept: {
       type: D.STRING,
       allowNull: false,
     },
     amount: {
-      type: D.STRING,
+      type: D.DECIMAL(20, 2),
       allowNull: false
     },    
     date: {
-      type: D.DATE,
+      type: D.STRING,
       allowNull: false
     },   
     type: {
