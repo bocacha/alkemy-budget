@@ -1,0 +1,14 @@
+
+
+.footer {
+    color: burlywood;
+    display: flex;
+    align-items: center;    
+}
+.linea{
+    border: 0; 
+    height: 1px; 
+    background: rgb(129, 129, 129); 
+    opacity: 0.2 
+}
+     

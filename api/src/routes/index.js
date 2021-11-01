@@ -29,10 +29,9 @@ router.get('/income', async (req, res) => {
 });
 
 router.get('/expense',async (req, res) => {
-    const {type} = req.query;
     const data = await getDBData();
-    const expense = data.filter(transaction => transaction.type === type);
-    outcome.length > 0 ?
+    const expense = data.filter(transaction => transaction.type === "expense");
+    expense.length > 0 ?
     res.status(200).send(expense) :
     res.status(404).send('There is no expenses registered!');
 });

@@ -1,0 +1,20 @@
+.navContainer{
+    display:flex;
+    justify-content: center;
+    
+}
+.number{    
+    color:burlywood;
+    padding-left: 20px;
+    padding-right: 20px;    
+}
+.number:hover{
+    cursor: pointer;
+    border: 1px solid burlywood;
+    border-radius:8px;
+}
+.pagination{
+    display:flex;    
+    font-size: 20px;
+    
+}
