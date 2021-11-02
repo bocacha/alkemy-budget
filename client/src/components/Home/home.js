@@ -2,7 +2,7 @@ import React  from 'react';
 import { useState,useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { getIncome,getExpense} from '../../actions/index'
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Paginate from '../Paginate';
 import Nav from '../Nav/nav';
 import Card from '../Card/Card';
@@ -36,19 +36,38 @@ export default function Home(){
         setCurrentPage(pageNumber);
     }
 
-   
+    const totalIncome = allIncomes.reduce((acc,curr) => parseInt(acc) + parseInt(curr.amount),0);
+    const totalExpense = allExpenses.reduce((acc,curr) => parseInt(acc) + parseInt(curr.amount),0);
     return (
-        <>        
-        <div className={style.container}>  
-                     
-            {currentItems?.map( (el) =>{
+        <>   
+        <Nav />
+        <div className={style.general}>
+            <div className={style.nav}>
+                <div className={style.navTitle}>                    
+                    <h3>Total incomes: ${totalIncome}</h3>
+                    <h3>Total expenses: ${totalExpense}</h3>
+                    <h3>Balance: ${totalIncome - totalExpense}</h3> 
+                    <fr/>
+                </div>
+                
+                <div className={style.navFilters}>
+                    {/* <button className={style.navButton}>INCOMES</button>
+                    <button className={style.navButton}>EXPENSES</button> */}
+                    <Link className={style.link} to='/create_new'>Add NEW</Link>
+                    <Link className={style.link} to='/categories'>CATEGORIES</Link>
+                    {/* <button className={style.navButton}>CATEGORIES</button> */}
+                </div>
+            </div>
+            <div className={style.container}>                       
+                {currentItems?.map( (el) =>{
                     return(
                         <div className={style.cardsContainer} key={el.id}>                            
                             <Card concept={el.concept} amount={el.amount} date={el.date} type={el.type}/>                            
                         </div>
                     );                
                 })
-            }             
+                }             
+            </div>
         </div>
         <div className={style.pagContainer}>
         <Paginate
@@ -57,7 +76,7 @@ export default function Home(){
                 paginate = {paginate} 
             />   
         </div>
-        <Nav />
+        
         </>
     )
 }

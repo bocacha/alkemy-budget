@@ -1,0 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Carrois Gothic SC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: darkslategrey;
+  /* background-image:url('../../client/src/images/background.png'); */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

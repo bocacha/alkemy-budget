@@ -3,7 +3,8 @@
 .footer {
     color: burlywood;
     display: flex;
-    align-items: center;    
+    align-items: center; 
+    justify-content: center;   
 }
 .linea{
     border: 0; 
