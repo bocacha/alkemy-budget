@@ -31,7 +31,7 @@ export default function Home(){
     const indexLastItem = currentPage * itemsPerPage;
     const indexFirstItem = indexLastItem - itemsPerPage;
     const currentItems = allTransactions.slice(indexFirstItem,indexLastItem);
-    console.log(allTransactions);
+    // console.log(allTransactions);
     const paginate = (pageNumber) =>{
         setCurrentPage(pageNumber);
     }
@@ -40,14 +40,14 @@ export default function Home(){
     const totalExpense = allExpenses.reduce((acc,curr) => parseInt(acc) + parseInt(curr.amount),0);
     return (
         <>   
-        <Nav />
+        <Nav incomes={totalIncome} expenses={totalExpense}/>
         <div className={style.general}>
             <div className={style.nav}>
                 <div className={style.navTitle}>                    
                     <h3>Total incomes: ${totalIncome}</h3>
                     <h3>Total expenses: ${totalExpense}</h3>
                     <h3>Balance: ${totalIncome - totalExpense}</h3> 
-                    <fr/>
+                    <hr/>
                 </div>
                 
                 <div className={style.navFilters}>

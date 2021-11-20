@@ -15,6 +15,10 @@ function rootReducer(state = initialState, action){
                 ...state,
                 expensesList: action.payload,                
             }
+        case 'POST_TRANSACTION':
+            return {
+                ...state,
+            }
         default : return state
     }
 }

@@ -10,6 +10,7 @@ router.use(setHeaders);
 router.use(errorHandler);
 
 const getDBData = async () => {
+    console.log("entre a FIND ALL")
     return await Transaction.findAll({
         order: [['date', 'DESC']],
     })
@@ -21,6 +22,7 @@ const getDBData = async () => {
 // });
 
 router.get('/income', async (req, res) => {
+    console.log("entre a INCOME")
     const data = await getDBData();
     const income = data.filter(transaction => transaction.type === "income");
     income.length > 0 ? 
@@ -29,6 +31,7 @@ router.get('/income', async (req, res) => {
 });
 
 router.get('/expense',async (req, res) => {
+    console.log("entre a expense");
     const data = await getDBData();
     const expense = data.filter(transaction => transaction.type === "expense");
     expense.length > 0 ?
@@ -36,11 +39,12 @@ router.get('/expense',async (req, res) => {
     res.status(404).send('There is no expenses registered!');
 });
 
-router.post("/transaction", async (req, res) => {
-    let { id,concept,amount,date,type} = req.body      
-    try {
-        await Transaction.create({id,concept,amount,date,type});      
-        res.status(200).send('Transaction created!')
+router.post("/transaction", async(req, res) => {
+    let { id,concept,amount,date,type} = req.body ;
+     try {
+        await Transaction.create(id,concept,amount,date,type) ; 
+        // await Transaction.create(req.body) ;             
+        res.status(200).send('Transaction created!') ;        
     } catch (error) {
       console.log(error)
       res.status(400).send(error);
