@@ -16,11 +16,6 @@ const getDBData = async () => {
     })
 };
 
-// router.get('/', async (req, res) => {
-//     res.status(200).send('Bienvendido a Personal Budget!');
-    
-// });
-
 router.get('/income', async (req, res) => {
     console.log("entre a INCOME")
     const data = await getDBData();
@@ -39,11 +34,12 @@ router.get('/expense',async (req, res) => {
     res.status(404).send('There is no expenses registered!');
 });
 
-router.post("/transaction", async(req, res) => {
+router.post("/transaction", async (req, res) => {
     let { id,concept,amount,date,type} = req.body ;
+   
      try {
-        await Transaction.create(id,concept,amount,date,type) ; 
-        // await Transaction.create(req.body) ;             
+        await Transaction.create({id,concept,amount,date,type}) ; 
+                   
         res.status(200).send('Transaction created!') ;        
     } catch (error) {
       console.log(error)

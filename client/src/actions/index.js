@@ -72,19 +72,18 @@ export function postTransaction(payload){
     console.log("payload es: " + payload) ;
     console.log("payload.concept es: " + payload.concept) ;
     console.log("payload.amount es: " + payload.amount) ;
-    return async function(dispatch){        
-        var json = await axios.post('http://localhost:3001/transaction',payload);       
-         //return json;
-        console.log("json.data es: " + json.data) ;
-        return dispatch({
-            type:'POST_TRANSACTION',
-            payload: json.data
+    // return async function(dispatch){        
+    //     var json = await axios.post('http://localhost:3001/transaction',payload);       
+        
+        
+    //     return dispatch({
+    //         type:'POST_TRANSACTION',
+    //         payload: json.data
             
-        })
-    }
-    // return async function(){
-    //     var json = await axios.post('http://localhost:3001/transaction',payload,{
-    //     });
-    //     return json;
+    //     })
     // }
+    return async function(){
+        var json = await axios.post('http://localhost:3001/transaction',payload);
+        return json;
+    }
 }

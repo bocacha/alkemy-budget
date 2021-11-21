@@ -95,6 +95,11 @@ function Form() {
         </div >
 
         <div>
+          {/* <select>
+            <option onChange={handleChange}value="">Transaction Type:</option>
+            <option name="type" value="income">Income</option>
+            <option name="type" value="expense">Expense</option>
+          </select> */}
           <input className={style.orderLarge}
             placeholder="Type"
             type="text"

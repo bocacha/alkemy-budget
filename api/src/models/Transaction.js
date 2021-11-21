@@ -5,25 +5,25 @@ module.exports = (sequelize) => {
    sequelize.define('transaction', {
     id:{
       type:D.INTEGER,
-      allowNull:false,
+      allowNull:true,
       primaryKey:true,
       autoIncrement:true
     },
     concept: {
       type: D.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     amount: {
-      type: D.DECIMAL(20, 2),
-      allowNull: false
+      type: D.INTEGER,
+      allowNull: true,
     },    
     date: {
       type: D.STRING,
-      allowNull: false
+      allowNull: true,
     },   
     type: {
       type: D.STRING,
-      allowNull: false
+      allowNull: true,
     },
   });
 }
